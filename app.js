@@ -13,6 +13,8 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+const employees = [];
+
 const promptUser = () => {
     return inquirer.prompt([
         {
@@ -34,11 +36,23 @@ const promptUser = () => {
             type: 'input',
             name: 'phone',
             message: 'What is your Managers office number?'
+        },
+        {
+            type: 'list',
+            name: 'role',
+            message: 'Which type of team member would you like to add?',
+            options: ["Engineer", "Intern", "I don't want to add any more team members"]
         }
     ])
 }
 
 promptUser()
 .then(answers => {
-    console.log (answers);
+    var manager = new Manager(answers.name, answers.id, answers.email, answers.phone)
+    employees.push(manager);
+    if (answers.role == "Engineer"){
+        Engineer()
+    } else if (answers.role == "Intern") {
+        
+    }
 });
