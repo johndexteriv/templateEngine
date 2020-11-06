@@ -115,8 +115,9 @@ const promptRole = () => {
     } else if (answers.role == "Intern") {
         promptIntern();
     } else {
+        console.log(employees)
         const html = render(employees)
-        return fs.writeFile(OUTPUT_DIR, html, function (err) {
+        return fs.writeFile('team.html', html, function (err) {
             if (err) {
                 console.log('AN ERROR HAS OCCURRED')
             } else {
