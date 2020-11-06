@@ -15,7 +15,7 @@ const render = require("./lib/htmlRenderer");
 
 const employees = [];
 
-const promptUser = () => {
+const promptManager = () => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -36,7 +36,67 @@ const promptUser = () => {
             type: 'input',
             name: 'phone',
             message: 'What is your Managers office number?'
+        }
+    ])
+}
+
+const promptEngineer = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is your Engineers name?'
         },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is your Engineers ID?'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your Engineer Email?' 
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'What is your Engineers GitHub?'
+        }
+    ])
+    .then(answers => {
+            var engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
+            employees.push(engineer);
+            promptRole();
+        })
+}
+
+const promptIntern = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is your Interns name?'
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is your Interns ID?'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your Interns Email?' 
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'What is your Interns school?'
+        }
+    ])
+}
+
+const promptRole = () => {
+    return inquirer.prompt([ 
         {
             type: 'list',
             name: 'role',
@@ -44,15 +104,21 @@ const promptUser = () => {
             options: ["Engineer", "Intern", "I don't want to add any more team members"]
         }
     ])
+    .then(answers => {
+    if (answers.role == "Engineer"){
+        promptEngineer();
+    } else if (answers.role == "Intern") {
+        promptIntern();
+    } else {
+        
+    }
+    })
 }
 
-promptUser()
+promptManager()
 .then(answers => {
     var manager = new Manager(answers.name, answers.id, answers.email, answers.phone)
     employees.push(manager);
-    if (answers.role == "Engineer"){
-        Engineer()
-    } else if (answers.role == "Intern") {
-        
-    }
+    promptRole()
+    
 });
