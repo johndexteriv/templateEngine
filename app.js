@@ -93,6 +93,11 @@ const promptIntern = () => {
             message: 'What is your Interns school?'
         }
     ])
+    .then(answers => {
+        var intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+        employees.push(intern)
+        promptRole();
+    })
 }
 
 const promptRole = () => {
@@ -119,6 +124,6 @@ promptManager()
 .then(answers => {
     var manager = new Manager(answers.name, answers.id, answers.email, answers.phone)
     employees.push(manager);
-    promptRole()
+    promptRole();
     
 });
