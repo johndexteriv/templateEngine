@@ -106,7 +106,7 @@ const promptRole = () => {
             type: 'list',
             name: 'role',
             message: 'Which type of team member would you like to add?',
-            options: ["Engineer", "Intern", "I don't want to add any more team members"]
+            choices: ["Engineer", "Intern", "I don't want to add any more team members"]
         }
     ])
     .then(answers => {
@@ -115,7 +115,14 @@ const promptRole = () => {
     } else if (answers.role == "Intern") {
         promptIntern();
     } else {
-        
+        const html = render(employees)
+        return fs.writeFile(OUTPUT_DIR, html, function (err) {
+            if (err) {
+                console.log('AN ERROR HAS OCCURRED')
+            } else {
+                console.log('YOUR WEBPAGE HAS BEEN GENERATED')
+            }
+        })
     }
     })
 }
