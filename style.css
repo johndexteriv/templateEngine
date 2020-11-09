@@ -1,0 +1,13 @@
+.card {
+	margin: 8px;
+}
+
+body {
+	background-color: lightslategray;
+}
+
+.team-area {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: auto;
+}
