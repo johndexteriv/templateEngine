@@ -15,7 +15,7 @@ so that I have quick access to emails and GitHub profiles
 ### Classes
 
 The project must have the these classes: `Employee`, `Manager`, `Engineer`,
-`Intern`. The tests for these classes in the `tests` directory must all pass.
+`Intern`.
 
 The first class is an `Employee` parent class with the following properties and
 methods:
