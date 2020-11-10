@@ -14,10 +14,12 @@ body {
 
 .jumbotron {
 	background-color: darkcyan;
+	font-family: "Noto Sans JP", sans-serif;
 }
 
 .card-header {
 	background-color: cornflowerblue;
+	font-family: "Noto Sans JP", sans-serif;
 }
 
 .card-body {
