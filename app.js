@@ -117,7 +117,7 @@ const promptRole = () => {
     } else {
         console.log(employees)
         const html = render(employees)
-        return fs.writeFile('team.html', html, function (err) {
+        return fs.writeFile('./output/team.html', html, function (err) {
             if (err) {
                 console.log('AN ERROR HAS OCCURRED')
             } else {
