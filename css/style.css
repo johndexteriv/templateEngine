@@ -3,11 +3,27 @@
 }
 
 body {
-	background-color: #e9dccd;
+	background-color: ghostwhite;
 }
 
 .team-area {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-auto-rows: auto;
+}
+
+.jumbotron {
+	background-color: darkcyan;
+}
+
+.card-header {
+	background-color: cornflowerblue;
+}
+
+.card-body {
+	background-color: lightslategrey;
+}
+
+.list-group-item {
+	background-color: ghostwhite;
 }
