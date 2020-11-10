@@ -1,14 +1,18 @@
-# OOP Homework = Template Engine - Employee Summary
+# OOP Homework - Template Engine - Employee Summary
 
 ## To Run CLI Application
 
 Install node_modules
 
-> npm i
+```
+npm i
+```
 
 Run application
 
-> node app.js
+```
+node app.js
+```
 
 ## Instructions
 
@@ -78,6 +82,8 @@ The project must generate a `team.html` page in the `output` directory, that dis
 - ID
 
 - Role-specific property (School, link to GitHub profile, or office number)
+
+https://github.com/johndexteriv/templateEngine
 
 ![App Gif](./assets/templategif.gif)
 
